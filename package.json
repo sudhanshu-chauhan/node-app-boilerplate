@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/sudhanshu-chauhan/node-app-boilerplate#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.5.2"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
