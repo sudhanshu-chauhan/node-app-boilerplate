@@ -15,6 +15,26 @@ class UserController {
       response.status(500).send('server error');
     }
   }
+
+  static post(request, response) {
+    try {
+      const createQuery = {
+        firstName: request.body.firstName,
+        lastName: request.body.lastName,
+        email: request.body.email,
+        createdAt: Date.now(),
+        modifiedAt: Date.now(),
+      };
+      UserModel.create(createQuery, (error, user) => {
+        if (error) {
+          return response.status(500).send('server error while creating user.');
+        }
+        return response.status(200).send(user);
+      });
+    } catch (error) {
+      response.status(500).send('server error');
+    }
+  }
 }
 
 module.exports = UserController;
