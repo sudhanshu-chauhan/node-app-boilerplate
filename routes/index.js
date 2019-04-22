@@ -10,7 +10,8 @@ router.use(bodyParser.urlencoded({
 router.use(bodyParser.json());
 
 // user routes
-router.get('/user', (request, response) => UserController.get(request, response));
+router.get('/user/list', (request, response) => UserController.get(request, response));
 router.get('/user/:id', (request, response) => UserController.get(request, response));
+router.post('/user/create', (request, response) => UserController.post(request, response));
 
 module.exports = router;
