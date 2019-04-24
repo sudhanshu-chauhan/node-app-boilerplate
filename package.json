@@ -6,6 +6,7 @@
   "scripts": {
     "start": "./node_modules/.bin/pm2 start ./bin/www",
     "stop": "./node_modules/.bin/pm2 stop www",
+	"lint": "./node_modules/.bin/eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
