@@ -22,6 +22,7 @@ class UserController {
         firstName: request.body.firstName,
         lastName: request.body.lastName,
         email: request.body.email,
+        password: request.body.password,
         createdAt: Date.now(),
         modifiedAt: Date.now(),
       };
