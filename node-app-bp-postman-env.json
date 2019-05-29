@@ -1,0 +1,19 @@
+{
+	"id": "2f647729-6109-4c20-b1e2-d1b2d58820be",
+	"name": "node-app-boilerplate-env-local",
+	"values": [
+		{
+			"key": "port",
+			"value": "3000",
+			"enabled": false
+		},
+		{
+			"key": "url",
+			"value": "http://localhost:3000/api",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2019-05-29T16:27:11.085Z",
+	"_postman_exported_using": "Postman/7.0.9"
+}

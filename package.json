@@ -7,6 +7,7 @@
     "start": "./node_modules/.bin/pm2 start ./bin/www",
     "stop": "./node_modules/.bin/pm2 stop www",
     "lint": "./node_modules/.bin/eslint .",
+    "newman": "./node_modules/.bin/newman --environment ./node-app-bp-postman-env.json run ./node-app-bp-postman-coll.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,6 +32,7 @@
     "express": "^4.16.4",
     "mocha": "^6.1.4",
     "mongoose": "^5.5.3",
+    "newman": "^4.5.0",
     "nock": "^10.0.6",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
