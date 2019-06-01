@@ -34,6 +34,11 @@
 							"key": "email",
 							"value": "mailbox.sud@gmail.com",
 							"type": "text"
+						},
+						{
+							"key":"password",
+							"value": "aisekaise",
+							"type": "text"
 						}
 					]
 				},
