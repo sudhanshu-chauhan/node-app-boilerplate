@@ -1,4 +1,7 @@
 const convict = require('convict');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const config = convict({
   env: {
@@ -6,6 +9,12 @@ const config = convict({
     format: ['prod', 'dev', 'test', 'local'],
     default: 'local',
     env: 'NODE_ENV',
+  },
+  saltRounds: {
+    doc: 'salt rounds for hashing password',
+    format: Number,
+    default: 10,
+    env: 'SALT_ROUNDS',
   },
   appSecret: {
     doc: 'application secret for generating jwt token',
@@ -42,6 +51,6 @@ const config = convict({
 });
 
 const env = config.get('env');
-config.loadFile(`../.${env}.d/${env}.json`);
+config.loadFile(`${__dirname}/.${env}.d/${env}.json`);
 config.validate({ allowed: 'strict' });
 module.exports = config;
