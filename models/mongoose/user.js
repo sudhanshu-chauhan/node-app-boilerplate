@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const config = require('../../config/config');
 
-const saltRounds = 10;
 
 const userSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
   .pre('save', function (next) {
     const currentUser = this;
     // hash plain text password before saving user
-    bcrypt.hash(currentUser.password, saltRounds)
+    bcrypt.hash(currentUser.password, config.get('saltRounds'))
       .then((hash) => {
         currentUser.password = hash;
         next();
@@ -29,7 +29,6 @@ userSchema.methods.validatePassword = function (password) {
       console.log(err);
       return false;
     }
-    console.log(result);
     return result;
   });
 };
@@ -37,7 +36,7 @@ userSchema.methods.validatePassword = function (password) {
 userSchema.methods.generateJWT = function (email) {
   const tokenPayload = { email };
   jwt.sign(tokenPayload,
-    'XXXX', // secret to be loaded from environment
+    config.get('appSecret'),
     (error, token) => {
       if (error) {
         return { error };
