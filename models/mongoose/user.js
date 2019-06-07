@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
+  role: {type: String, required: false, default:'user'},
   createdAt: { type: Date },
   modifiedAt: { type: Date },
 })
