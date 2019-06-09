@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  role: {type: String, required: false, default:'user'},
+  role: { type: String, required: false, default: 'user' },
   createdAt: { type: Date },
   modifiedAt: { type: Date },
 })
@@ -24,26 +24,22 @@ const userSchema = new mongoose.Schema({
       .catch(error => next(error));
   });
 
-userSchema.methods.validatePassword = function (password) {
-  bcrypt.compare(password, this.password, (err, result) => {
-    if (err) {
-      console.log(err);
-      return false;
-    }
-    return result;
-  });
-};
 
-userSchema.methods.generateJWT = function (email) {
+userSchema.methods.generateJWT = (email) => {
   const tokenPayload = { email };
-  jwt.sign(tokenPayload,
-    config.get('appSecret'),
-    (error, token) => {
-      if (error) {
-        return { error };
-      }
-      return token;
-    });
+  return new Promise((resolve, reject) => {
+    jwt.sign(
+      tokenPayload,
+      config.get('appSecret'),
+      (error, token) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve({ token });
+        }
+      },
+    );
+  });
 };
 
 mongoose.model('User', userSchema);
