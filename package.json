@@ -40,7 +40,8 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pm2": "^3.5.0",
-    "sinon": "^7.3.2"
+    "sinon": "^7.3.2",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
