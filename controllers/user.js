@@ -39,6 +39,27 @@ class UserController {
     }
   }
 
+  static put(request, response) {
+    try {
+      const patchQuery = {
+        firstName: request.body.firstName,
+        lastName: request.body.lastName,
+        email: request.body.email,
+        modifiedAt: Date.now(),
+      };
+      if (request.params.id !== undefined) {
+        UserModel.update({ _id: request.params.id }, patchQuery, (error, user) => {
+          if (error) {
+            response.status(500).send('server error!');
+          }
+          response.status(200).send(user);
+        });
+      }
+    } catch (error) {
+      response.status(500).send('server error');
+    }
+  }
+
   static login(request, response) {
     try {
       const loginParams = {

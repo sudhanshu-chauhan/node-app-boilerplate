@@ -15,5 +15,6 @@ router.get('/user/list', AuthMiddleware.isAuthenticated, (request, response) => 
 router.get('/user/:id', AuthMiddleware.isAuthenticated, (request, response) => UserController.get(request, response));
 router.post('/user/create', (request, response) => UserController.post(request, response));
 router.post('/user/login', (request, response) => UserController.login(request, response));
+router.put('/user/update/:id', (request, response) => UserController.put(request, response));
 
 module.exports = router;
