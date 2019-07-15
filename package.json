@@ -35,7 +35,7 @@
     "jsonwebtoken": "^8.5.1",
     "mocha": "^6.1.4",
     "mongoose": "^5.5.3",
-    "newman": "^4.5.0",
+    "newman": "^4.5.1",
     "nock": "^10.0.6",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
