@@ -1,4 +1,4 @@
 .env
 .package.json [conflicted].swp
 .vscode/
-config/.local.d/
+.local.d
