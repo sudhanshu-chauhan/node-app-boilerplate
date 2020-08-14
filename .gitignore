@@ -2,3 +2,4 @@
 .package.json [conflicted].swp
 .vscode/
 config/.local.d/
+node_modules/
